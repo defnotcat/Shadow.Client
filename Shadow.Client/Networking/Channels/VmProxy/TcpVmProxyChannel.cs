@@ -36,7 +36,5 @@ namespace Shadow.Client.Networking.Channels.VmProxy
             Console.WriteLine($"OnSslVerifyCert: {cert.Subject}");
             return true;
         }
-
-        public int GetMaxMessageSize() => 0x400; // 1024
     }
 }
