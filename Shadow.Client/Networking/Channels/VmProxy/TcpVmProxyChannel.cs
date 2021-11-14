@@ -1,9 +1,7 @@
 ﻿using System;
-using System.IO;
 using System.Net.Security;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
-using System.Text.Json;
 using Shadow.Client.Models;
 using Shadow.Client.Networking.Messages.VmProxy;
 using Shadow.Client.Networking.Tcp;
@@ -19,14 +17,7 @@ namespace Shadow.Client.Networking.Channels.VmProxy
 
         public TcpVmProxyChannel(VmLocation vmLocation) : base(vmLocation.Host, vmLocation.Port + PortOffset) { }
 
-        public void SendMessage(VmProxyMessageOut message)
-        {
-            var stream = new MemoryStream();
-            var writer = new BinaryWriter(stream);
-            message.Write(writer);
-            Console.WriteLine(JsonSerializer.Serialize(message));
-            Send(stream.ToArray());
-        }
+        public void SendMessage(VmProxyMessageOut message) => Send(VmProxyChannel.SerializeMessage(message));
 
         public void OnMessage(VmProxyMessageIn message)
         {

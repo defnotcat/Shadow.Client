@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.Json;
@@ -42,6 +43,14 @@ namespace Shadow.Client.Networking.Channels.VmProxy
 
             if (!string.IsNullOrEmpty(messageIdentifier) && TryGetMessageModel(messageIdentifier, out var model))
                 OnMessage((VmProxyMessageIn) JsonSerializer.Deserialize(jsonText, model));
+        }
+
+        byte[] SerializeMessage(VmProxyMessageOut message)
+        {
+            using var stream = new MemoryStream();
+            var writer = new BinaryWriter(stream);
+            message.Write(writer);
+            return stream.ToArray();
         }
     }
 }
