@@ -11,15 +11,8 @@ namespace Shadow.Client.Networking.Tcp
         protected Stream Stream { get; set; }
         protected BinaryWriter Writer { get; set; }
 
-        protected TcpChannel(string host, int port)
+        protected TcpChannel(string host, int portBase, int portOffset) : base(host, portBase, portOffset)
         {
-            Host = host;
-            Port = port;
-        }
-
-        protected TcpChannel(TcpClient tcpClient)
-        {
-            TcpClient = tcpClient;
         }
 
         public abstract override void OnDataReceived(byte[] data);

@@ -1,12 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Data;
 using System.Net.Security;
-using System.Reflection.Metadata.Ecma335;
-using System.Security.Authentication;
 using System.Security.Cryptography.X509Certificates;
-using Shadow.Client.Extensions;
-using Shadow.Client.Networking.Messages;
 using Shadow.Client.Networking.Messages.CtrlV2;
 using Shadow.Client.Networking.Tcp;
 
@@ -14,9 +8,7 @@ namespace Shadow.Client.Networking.Channels.CtrlV2
 {
     public class TcpCtrlV2Channel : SslTcpChannel, ICtrlV2Channel
     {
-        public TcpCtrlV2Channel(string host, int port) : base(host, port)
-        {
-        }
+        public TcpCtrlV2Channel(string host, int port) : base(host, port, 11) { }
 
         public override void OnDataReceived(byte[] data)
         {

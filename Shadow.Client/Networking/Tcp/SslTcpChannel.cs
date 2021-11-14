@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Net;
 using System.Net.Security;
-using System.Net.Sockets;
 using System.Security.Cryptography.X509Certificates;
 using Shadow.Client.Extensions;
 
@@ -11,10 +9,8 @@ namespace Shadow.Client.Networking.Tcp
     {
         protected SslStream SslStream => Stream as SslStream;
         
-        protected SslTcpChannel(string host, int port) : base(host, port) { }
+        protected SslTcpChannel(string host, int portBase, int portOffset) : base(host, portBase, portOffset) { }
 
-        protected SslTcpChannel(TcpClient tcpClient) : base(tcpClient) { }
-        
         public virtual bool AuthenticateSslStream()
         {
             try

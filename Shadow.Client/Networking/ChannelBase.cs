@@ -6,7 +6,15 @@ namespace Shadow.Client.Networking
     {
         protected string ChannelName => GetType().Name;
         public string Host { get; protected set; }
+        public int PortBase { get; protected set; }
         public int Port { get; protected set; }
+        
+        protected ChannelBase(string host, int port, int portOffset)
+        {
+            Host = host;
+            PortBase = port;
+            Port = port + portOffset;
+        }
 
         protected void Throw(string msg) => throw new InvalidOperationException($"{ChannelName}: {msg}");
 

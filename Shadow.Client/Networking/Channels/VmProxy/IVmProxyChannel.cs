@@ -20,7 +20,7 @@ namespace Shadow.Client.Networking.Channels.VmProxy
             new HelloMessage(),
             new ShadowStatusMessage()
         };
-        
+
         /// <summary>
         /// Get message model from identifiers resp or cmd
         /// </summary>

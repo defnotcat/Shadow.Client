@@ -9,12 +9,10 @@ namespace Shadow.Client.Networking.Channels.VmProxy
 {
     public class TcpVmProxyChannel : SslTcpChannel, IVmProxyChannel
     {
-        private const int PortOffset = 1;
-
         // To avoid having to cast this to IVMProxyChannel every time
         public IVmProxyChannel VmProxyChannel => this;
 
-        public TcpVmProxyChannel(string host, int portBase) : base(host, portBase + PortOffset) { }
+        public TcpVmProxyChannel(string host, int portBase) : base(host, portBase, 1) { }
 
         public void SendMessage(VmProxyMessageOut message) => Send(VmProxyChannel.SerializeMessage(message));
 
