@@ -6,7 +6,7 @@ namespace Shadow.Client.Networking.Messages.VmProxy.In
     public class ShadowStatusMessage : VmProxyMessageIn
     {
         
-        [JsonPropertyName("err")] public string Error { get; set; }
+        [JsonPropertyName("err")] public int Error { get; set; }
         [JsonPropertyName("data")] public DataModel Data { get; set; }
         [JsonPropertyName("service")] public string Service { get; set; }
 

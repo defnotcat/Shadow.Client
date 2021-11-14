@@ -8,7 +8,7 @@ namespace Shadow.Client.Networking.Messages.VmProxy.In
         {
         }
 
-        [JsonPropertyName("err")] public string Error { get; set; }
+        [JsonPropertyName("err")] public int Error { get; set; }
         [JsonPropertyName("vmtoken")] public string VmToken { get; set; }
         [JsonPropertyName("vmtoken_expiry")] public long VmTokenExpiry { get; set; }
     }
