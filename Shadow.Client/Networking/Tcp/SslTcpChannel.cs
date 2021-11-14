@@ -19,7 +19,6 @@ namespace Shadow.Client.Networking.Tcp
         {
             try
             {
-                new UdpClient().
                 SslStream.AuthenticateAsClient(TcpClient.GetRemoteAddress().Host);
                 return true;
             }
