@@ -3,7 +3,7 @@ using System.Net.Security;
 using System.Security.Cryptography.X509Certificates;
 using Shadow.Client.Extensions;
 
-namespace Shadow.Client.Networking.Tcp
+namespace Shadow.Client.Networking.Channels.Tcp
 {
     public abstract class SslTcpChannel : TcpChannel
     {

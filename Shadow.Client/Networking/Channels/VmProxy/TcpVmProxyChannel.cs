@@ -2,8 +2,8 @@
 using System.Net.Security;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
+using Shadow.Client.Networking.Channels.Tcp;
 using Shadow.Client.Networking.Messages.VmProxy;
-using Shadow.Client.Networking.Tcp;
 
 namespace Shadow.Client.Networking.Channels.VmProxy
 {

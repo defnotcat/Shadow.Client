@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Net.Security;
 using System.Security.Cryptography.X509Certificates;
+using Shadow.Client.Networking.Channels.Tcp;
 using Shadow.Client.Networking.Messages.CtrlV2;
-using Shadow.Client.Networking.Tcp;
 
 namespace Shadow.Client.Networking.Channels.CtrlV2
 {

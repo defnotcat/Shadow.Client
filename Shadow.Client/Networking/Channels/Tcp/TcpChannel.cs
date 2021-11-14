@@ -3,7 +3,7 @@ using System.IO;
 using System.Linq;
 using System.Net.Sockets;
 
-namespace Shadow.Client.Networking.Tcp
+namespace Shadow.Client.Networking.Channels.Tcp
 {
     public abstract class TcpChannel : ChannelBase
     {

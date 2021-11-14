@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Shadow.Client.Networking
+namespace Shadow.Client.Networking.Channels
 {
     public abstract class ChannelBase : IDisposable
     {
