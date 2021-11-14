@@ -2,7 +2,6 @@
 using System.Net.Security;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
-using Shadow.Client.Models;
 using Shadow.Client.Networking.Messages.VmProxy;
 using Shadow.Client.Networking.Tcp;
 
@@ -15,7 +14,7 @@ namespace Shadow.Client.Networking.Channels.VmProxy
         // To avoid having to cast this to IVMProxyChannel every time
         public IVmProxyChannel VmProxyChannel => this;
 
-        public TcpVmProxyChannel(VmLocation vmLocation) : base(vmLocation.Host, vmLocation.Port + PortOffset) { }
+        public TcpVmProxyChannel(string host, int portBase) : base(host, portBase + PortOffset) { }
 
         public void SendMessage(VmProxyMessageOut message) => Send(VmProxyChannel.SerializeMessage(message));
 
