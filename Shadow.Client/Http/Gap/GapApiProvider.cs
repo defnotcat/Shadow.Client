@@ -41,13 +41,13 @@ namespace Shadow.Client.Http.Gap
         /// <exception cref="TwoFactorRequiredException"></exception>
         public GapSession Login(SsoSession ssoSession)
         {
-            var content = PerformJson<JsonElement>("/shadow/auth_login", out var response, content: new { token = ssoSession.Token });
+            var content = PerformJson<JsonElement>("shadow/auth_login", out var response, content: new { token = ssoSession.Token });
             if (response.StatusCode != HttpStatusCode.OK) throw new InvalidOperationException($"Failed to obtain authorization for {Host}, the sso session is probably bad");
 
             var token = content.GetProperty("token").GetString();
             Session = new GapSession { Token = token };
 
-            PerformJson<JsonElement>("/shadow/auth_uuid", out response);
+            PerformJson<JsonElement>("shadow/auth_uuid", out response, "GET");
             if (response.StatusCode == HttpStatusCode.PreconditionFailed) throw new TwoFactorRequiredException(null);
             if (response.StatusCode != HttpStatusCode.OK) throw new InvalidOperationException($"Unexpected API response, expected 200 status code and got {response.StatusCode}");
             
@@ -62,7 +62,7 @@ namespace Shadow.Client.Http.Gap
         /// <exception cref="InvalidOperationException"></exception>
         public void ApproveLogin(string twoFactorCode)
         {
-            var content = PerformJson<JsonElement>($"/shadow/client/approval?code={twoFactorCode}", out var response);
+            var content = PerformJson<JsonElement>($"shadow/client/approval?code={twoFactorCode}", out var response);
             if (response.StatusCode == HttpStatusCode.Forbidden) throw new TwoFactorRequiredException($"error code: {content.GetProperty("err").GetString()}");
             if (response.StatusCode != HttpStatusCode.OK) throw new InvalidOperationException($"Unexpected API response, expected 200 status code and got {response.StatusCode}");
         }

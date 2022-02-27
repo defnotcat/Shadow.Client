@@ -6,10 +6,6 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <Folder Include="Networking\Messages\CtrlV2\In" />
-    </ItemGroup>
-
-    <ItemGroup>
       <PackageReference Include="protobuf-net" Version="3.0.101" />
     </ItemGroup>
 

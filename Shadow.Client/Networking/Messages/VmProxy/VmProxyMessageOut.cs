@@ -1,10 +1,11 @@
 ﻿using System.IO;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using Shadow.Client.Networking.Serialization;
 
 namespace Shadow.Client.Networking.Messages.VmProxy
 {
-    public class VmProxyMessageOut : IWritableMessage
+    public class VmProxyMessageOut : ISerializable
     {
         
         [JsonPropertyName("cmd")] public string Cmd { get; set; }

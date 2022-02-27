@@ -1,11 +1,12 @@
 ﻿using System.IO;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using Shadow.Client.Networking.Serialization;
 
 namespace Shadow.Client.Networking.Messages.VmProxy
 {
     
-    public class VmProxyMessageIn : IReadableMessage
+    public class VmProxyMessageIn : IDeserializable
     {
         
         [JsonPropertyName("cmd")] public string Cmd { get; set; }
@@ -17,7 +18,9 @@ namespace Shadow.Client.Networking.Messages.VmProxy
             Cmd = cmd;
         }
 
-        public object Read(BinaryReader reader)
-            => JsonSerializer.Deserialize(reader.ReadString(), GetType());
+        public object Deserialize(byte[] serializedData)
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

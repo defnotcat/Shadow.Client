@@ -4,7 +4,6 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.Json;
-using Shadow.Client.Networking.Messages;
 using Shadow.Client.Networking.Messages.VmProxy;
 using Shadow.Client.Networking.Messages.VmProxy.In;
 
@@ -35,6 +34,9 @@ namespace Shadow.Client.Networking.Channels.VmProxy
         
         public IVmProxyChannel VmProxyChannel { get; }
 
+        new void SendMessage(VmProxyMessageOut message);
+        new void OnMessage(VmProxyMessageIn message);
+        
         void HandleInData(byte[] data)
         {
             var jsonText = Encoding.Default.GetString(data);

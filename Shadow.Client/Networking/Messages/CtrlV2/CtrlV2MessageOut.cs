@@ -1,13 +1,17 @@
-﻿using System;
-using System.IO;
+﻿using System.IO;
+using ProtoBuf;
+using Shadow.Client.Networking.Serialization;
 
 namespace Shadow.Client.Networking.Messages.CtrlV2
 {
-    public class CtrlV2MessageOut : IWritableMessage
+    public abstract class CtrlV2MessageOut : ISerializable
     {
+
         public void Write(BinaryWriter writer)
         {
-            throw new NotImplementedException();
+            var memStream = new MemoryStream();
+            Serializer.Serialize(memStream, this);
+            writer.Write(memStream.ToArray());
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using Shadow.Client.Models;
+using Shadow.Client.Networking.Channels.VmProxy;
 
 namespace Shadow.Client.Sessions
 {
@@ -8,6 +9,8 @@ namespace Shadow.Client.Sessions
         
         public ShadowVM ParentVm { get; set; }
         
+        public IVmProxyChannel VmProxyChannel { get; set; }
+        
         public VmSession(ShadowVM parentVm)
         {
             ParentVm = parentVm;
@@ -15,6 +18,7 @@ namespace Shadow.Client.Sessions
         
         public void Dispose()
         {
+            
             throw new NotImplementedException();
         }
     }

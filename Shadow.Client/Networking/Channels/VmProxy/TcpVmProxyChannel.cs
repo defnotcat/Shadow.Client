@@ -21,7 +21,10 @@ namespace Shadow.Client.Networking.Channels.VmProxy
             Console.WriteLine($"\nOnMessage: {message.GetType().FullName}");
         }
 
-        public override void OnDataReceived(byte[] data) => VmProxyChannel.HandleInData(data);
+        public override void OnDataReceived(byte[] data)
+        {
+            VmProxyChannel.HandleInData(data);
+        }
 
         public override void OnDataSent(byte[] data)
         {
