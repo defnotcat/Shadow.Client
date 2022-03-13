@@ -6,7 +6,7 @@ I still thought this might be useful to anyone who might need to automatize thei
 
 # Some additional informations
 
-This client is entirely based off reversing their Android application (`com.blade.shadowcloudgaming`), which uses JNI to interact with a C++ native library named `libAwesome.js`, which does all the heavy work. This library is unpacked from the app data and then loaded in the app at runtime when you start interacting with the virtual machine. 
+This client is entirely based off reversing their Android application (`com.blade.shadowcloudgaming`), which uses JNI to interact with a C++ native library named `libAwesome.so`, which does all the heavy work. This library is unpacked from the app data and then loaded in the app at runtime when you start interacting with the virtual machine. 
 
 The connection to the **VM** runs over multiple channels (*aka. ports*) dispatched on two protocols: TCP and UDP.
 
